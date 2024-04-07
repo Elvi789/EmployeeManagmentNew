@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EmployeeManagment.Data.EmployeePosition>
+
+@{
+    ViewData["Title"] = "Index";
+    var employeeId = ViewBag.EMployeeId as int?;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-route-eId="@employeeId"asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+              <span>Employee</span>
+            </th>
+            <th>
+                <span>Position</span>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Employee.FirstName
+            </td>
+            <td>
+               @item.Position.Name
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

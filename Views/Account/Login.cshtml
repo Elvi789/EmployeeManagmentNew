@@ -1,0 +1,15 @@
+﻿@model EmployeeManagment.Models.AccountModel.LoginViewModel
+@{}
+
+<div>
+    <form asp-action="Login">
+        <label>Email</label><br />
+        <input asp-for="Email"/> <br />
+
+        <label>Password</label><br />
+        <input asp-for="Password" /> <br />
+
+        <a asp-action="Login">Login</a>
+    </form>
+   
+</div>
